@@ -15,7 +15,7 @@ def calculateCoefficient(f, k, N):
     ak = aK(N, f, k)
     bk = bK(N, f, k)
     sumAmountK = 2 * N
-    multAmountK = 2 * (N + 1) + 6 * N
+    multAmountK = 2 + 8 * N
     return ak, bk, sumAmountK, multAmountK
 
 
@@ -71,13 +71,13 @@ def graphSpectrumPhase(phaseSpectrum, N):
     plt.show()
 
 
-N = 15
+N = 512
 fArray = np.random.uniform(-1, 1, N)
 arrayA, arrayB, arrayC, totalTime, sumTotalAmount, multiplicationTotalAmount = calculateCoefficients(fArray, N)
 printTableOfCoefficients(arrayA, arrayB, N)
 print(f"Кількість операцій додавання: {sumTotalAmount}")
 print(f"Кількість операцій множення: {multiplicationTotalAmount}")
-print(f"Загальний час обчислення коефіцієнтів: {totalTime}")
+print(f"Загальний час: {totalTime}")
 
 amplitudeSpectrum, phaseSpectrum = [], []
 for k in range(0, N):
